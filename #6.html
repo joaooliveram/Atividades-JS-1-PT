@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6 - Par ou Ímpar</title>
+</head>
+<body>
+
+    <h3>Verificar se o Número é Par ou Ímpar</h3>
+    <input type="number" id="numX" placeholder="Digite um número">
+    
+    <button onclick="disparar()">Verificar</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function PAR_IMPAR(x) {
+            // Retorna true se o resto da divisão por 2 for zero
+            // Retorna false se o resto for diferente de zero 
+            return x % 2 === 0; 
+        }
+        function disparar() {
+            const x = parseInt(document.getElementById("numX").value);
+            if (isNaN(x)) {
+                alert("Por favor, digite um número inteiro!");
+                return;
+            }
+            const ePar = PAR_IMPAR(x);
+
+            // Exibe o booleano puro na tela e o significado amigável
+            document.getElementById("resultado").innerHTML = 
+                "Retorno da função: <strong>" + ePar + "</strong><br>" +
+                "Significado: O número é " + (ePar ? "Par" : "Ímpar");
+        }
+    </script>
+
+</body>
+</html>

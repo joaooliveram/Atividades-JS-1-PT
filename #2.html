@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#2 - Vogal</title>
+</head>
+<body>
+    <h3>Digite um caractere:</h3>
+    <input type="text" id="campoLetra" maxlength="1">
+    
+    <button onclick="checar()">Verificar</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function VOGAL(c) {
+            const letra = c.toLowerCase();
+            return "a,e,i,o,u".includes(letra) ? 1 : 0;
+        }
+        function checar() {
+            const caractere = document.getElementById("campoLetra").value;
+            if (caractere === "") {
+                alert("Digite uma letra primeiro!");
+                return;
+            }
+            const resposta = VOGAL(caractere);
+            document.getElementById("resultado").innerHTML = "Resultado da função: " + resposta;
+        }
+    </script>
+
+</body>
+</html>

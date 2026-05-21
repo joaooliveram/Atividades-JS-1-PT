@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#1 - Maior e Menor</title>
+</head>
+<body>
+
+    <h3>Digite 5 números:</h3>
+    <input type="number">
+    <input type="number">
+    <input type="number">
+    <input type="number">
+    <input type="number">
+    <button onclick="executar()">Descobrir Maior e Menor</button>
+    <p id="resultado"></p>
+    <script>
+        function MAIOR_MENOR(a, b, c, d, e) {
+            const vetor = [a, b, c, d, e];
+            
+            const maior = Math.max(...vetor);
+            const menor = Math.min(...vetor);
+            
+            document.getElementById("resultado").innerHTML = 
+                "Maior: " + maior + " <br> Menor: " + menor;
+        }
+
+        function executar() {
+            const campos = document.querySelectorAll("input");
+            
+            const lista = Array.from(campos).map(input => parseInt(input.value));
+            MAIOR_MENOR(lista[0], lista[1], lista[2], lista[3], lista[4]);
+        }
+    </script>
+
+</body>
+</html>

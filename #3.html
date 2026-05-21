@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#3 - Limites</title>
+</head>
+<body>
+
+    <h3>Análise de Intervalo Aberto</h3>
+    <input type="number" id="inf" placeholder="Limite Inferior">
+    <input type="number" id="sup" placeholder="Limite Superior">
+    
+    <button onclick="disparar()">Analisar Intervalo</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function LIMITES(li, ls) {
+            let pares = [];
+            let somatorio = 0;
+
+            for (let i = li + 1; i < ls; i++) {
+                if (i % 2 === 0) {
+                    pares.push(i);
+                    somatorio += i;
+                }
+            }
+            const listaPares = pares.length > 0 ? pares.join(", ") : "Nenhum";
+            document.getElementById("resultado").innerHTML = 
+                "<strong>Números pares encontrados:</strong> " + listaPares + "<br>" +
+                "<strong>Somatório dos pares:</strong> " + somatorio;
+        }
+        function disparar() {
+            const limiteInferior = parseInt(document.getElementById("inf").value);
+            const limiteSuperior = parseInt(document.getElementById("sup").value);
+            if (isNaN(limiteInferior) || isNaN(limiteSuperior)) {
+                alert("Por favor, preencha os dois campos!");
+                return;
+            }
+            if (limiteInferior >= limiteSuperior) {
+                alert("O limite inferior deve ser menor que o limite superior!");
+                return;
+            }
+            LIMITES(limiteInferior, limiteSuperior);
+        }
+    </script>
+
+</body>
+</html>

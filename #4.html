@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4 - Ordem Crescente</title>
+</head>
+<body>
+
+    <h3>Digite 3 números para ordenar:</h3>
+    <input type="number" id="n1" placeholder="Número A">
+    <input type="number" id="n2" placeholder="Número B">
+    <input type="number" id="n3" placeholder="Número C">
+    
+    <button onclick="disparar()">Ordenar</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function ORDEM(a, b, c) {
+            const numerosOrdenados = [a, b, c].sort((x, y) => x - y);
+                        return numerosOrdenados;
+        }
+        function disparar() {
+            const a = parseInt(document.getElementById("n1").value);
+            const b = parseInt(document.getElementById("n2").value);
+            const c = parseInt(document.getElementById("n3").value);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert("Por favor, preencha os 3 campos!");
+                return;
+            }
+            const resultado = ORDEM(a, b, c);
+            document.getElementById("resultado").innerHTML = 
+                "<strong>Ordem crescente:</strong> " + resultado.join(" -> ");
+        }
+    </script>
+
+</body>
+</html>
